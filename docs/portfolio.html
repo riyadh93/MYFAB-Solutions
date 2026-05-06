@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      background-color: #131313;
+      color: #e4e2e1;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .tactile-card {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      border: 1px solid #333333;
+    }
+    .inner-shadow-inset {
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#271900",
+            "secondary-container": "#4a4949",
+            "on-background": "#e4e2e1",
+            "on-surface": "#e4e2e1",
+            "tertiary-container": "#c4c5c5",
+            "on-primary-fixed-variant": "#5e4200",
+            "on-secondary-container": "#bab8b7",
+            "on-error-container": "#ffdad6",
+            "background": "#131313",
+            "surface-tint": "#ffba20",
+            "surface-container": "#1f2020",
+            "on-tertiary-container": "#505252",
+            "inverse-primary": "#7c5800",
+            "outline": "#9e8f78",
+            "tertiary-fixed": "#e2e2e2",
+            "secondary": "#c8c6c5",
+            "on-surface-variant": "#d5c4ab",
+            "secondary-fixed": "#e5e2e1",
+            "primary-fixed": "#ffdea8",
+            "on-tertiary": "#2f3131",
+            "surface-bright": "#393939",
+            "error": "#ffb4ab",
+            "outline-variant": "#514532",
+            "surface-container-low": "#1b1c1c",
+            "on-secondary-fixed-variant": "#474646",
+            "primary-fixed-dim": "#ffba20",
+            "on-primary-container": "#6b4c00",
+            "inverse-surface": "#e4e2e1",
+            "inverse-on-surface": "#303030",
+            "secondary-fixed-dim": "#c8c6c5",
+            "on-tertiary-fixed": "#1a1c1c",
+            "primary": "#ffdca1",
+            "tertiary": "#e0e1e1",
+            "surface-container-highest": "#353535",
+            "on-primary": "#412d00",
+            "on-tertiary-fixed-variant": "#454747",
+            "surface-variant": "#353535",
+            "surface-dim": "#131313",
+            "on-secondary-fixed": "#1c1b1b",
+            "surface-container-high": "#2a2a2a",
+            "surface-container-lowest": "#0e0e0e",
+            "primary-container": "#d4b04c",
+            "error-container": "#93000a",
+            "surface": "#131313",
+            "on-error": "#690005",
+            "tertiary-fixed-dim": "#c6c6c7",
+            "on-secondary": "#313030"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin": "32px",
+            "sm": "16px",
+            "md": "24px",
+            "xs": "8px",
+            "base": "4px",
+            "xl": "64px",
+            "gutter": "24px",
+            "lg": "40px"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-lg": ["Space Grotesk"],
+            "label-mono": ["Inter"],
+            "headline-xl": ["Space Grotesk"],
+            "caption": ["Inter"],
+            "headline-md": ["Space Grotesk"]
+          },
+          "fontSize": {
+            "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+            "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-mono": ["13px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "caption": ["12px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "400"}],
+            "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "0", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 border-b border-zinc-800 bg-zinc-950/90 backdrop-blur-md shadow-lg shadow-black/50">
+<div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-amber-300 text-[28px]">precision_manufacturing</span>
+<div class="text-2xl font-semibold tracking-tight text-amber-200 font-['Space_Grotesk']">MyFab Solutions</div>
+</div>
+<div class="hidden md:flex gap-8 items-center font-['Space_Grotesk'] text-sm tracking-tight">
+<a class="text-zinc-400 hover:text-amber-200 transition-all duration-200 active:scale-95" href="index.html">Home</a>
+<a class="text-zinc-400 hover:text-amber-200 transition-all duration-200 active:scale-95" href="materials.html">Materials</a>
+<a class="text-amber-200 border-b-2 border-amber-300 pb-1 hover:text-amber-100 transition-all duration-200 active:scale-95" href="portfolio.html">Portfolio</a>
+<a class="text-zinc-400 hover:text-amber-200 transition-all duration-200 active:scale-95" href="contact.html">Contact</a>
+</div>
+</div>
+</nav>
+<main class="mt-24 max-w-[1440px] mx-auto px-6 mb-24">
+<!-- Hero Header -->
+<header class="mb-16 border-l-4 border-amber-300 pl-6 py-4">
+<h1 class="font-headline-xl text-headline-xl text-on-background uppercase mb-2">Portfolio Gallery</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl">
+        Explore a mix of custom prints, display pieces, and practical builds made for everyday customers and personal projects.
+      </p>
+</header>
+<!-- Filter Bar (Auxiliary) -->
+<div class="flex flex-wrap gap-4 mb-10 pb-6 border-b border-zinc-800">
+<button class="portfolio-filter font-label-mono text-label-mono text-amber-200 uppercase bg-amber-300/10 px-4 py-2 border border-amber-300/20" data-filter="all" type="button">All Projects</button>
+<button class="portfolio-filter font-label-mono text-label-mono text-zinc-400 uppercase hover:text-white cursor-pointer px-4 py-2 transition-colors" data-filter="medical" type="button">Medical</button>
+<button class="portfolio-filter font-label-mono text-label-mono text-zinc-400 uppercase hover:text-white cursor-pointer px-4 py-2 transition-colors" data-filter="automotive" type="button">Automotive</button>
+</div>
+<!-- Gallery Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter" id="portfolio-grid">
+<!-- Large Featured Item -->
+<div class="portfolio-card md:col-span-8 group relative bg-surface-container-low tactile-card overflow-hidden" data-category="automotive">
+<div class="aspect-[16/9] w-full relative">
+<img alt="Industrial Turbine" class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" data-alt="Close-up of a complex 3D printed metal turbine blade with intricate internal cooling channels and a matte metallic finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIdi6QTiOEIwnpln7-Sj8qP6fFDLFlKnF7sw49WXdGYLPSl_NBscUX497ZzSy_uLsIaHOgVqxUvgNJ65YiUbvQgmJK8c_T7JnMwpAbKoV1bIb8fhYbKIE5FZUnubFbtvbeBw3kP7pHvGruh5Akdr-qmfcE29h1HZ6mFwvGcuAeXrl3nC4evhkVoS227gWdzvEZoGNSLcA5t8-giCKM6rjklb9PcMZqC4or8bYnTYlWF0osJno7fZTnPCyJ8ZyyiBtcTEzXw_91edwl"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-8">
+<div class="flex justify-between items-end">
+<div>
+<span class="font-label-mono text-[10px] text-amber-300 uppercase tracking-widest mb-2 block">Featured Case Study</span>
+<h2 class="font-headline-lg text-headline-lg text-white mb-2 uppercase">Advanced Turbine Blade</h2>
+<p class="font-body-md text-zinc-300 max-w-md">Material: Titanium Alloy (Ti6Al4V), Resolution: 30 microns. Optimized for high-thermal stress environments.</p>
+</div>
+<div class="flex items-center gap-2 bg-amber-300 text-black p-3 group-hover:bg-amber-200 transition-colors">
+<span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Small Item 1 -->
+<div class="portfolio-card md:col-span-4 bg-surface-container tactile-card group" data-category="other">
+<div class="aspect-square relative overflow-hidden bg-black">
+<img alt="Architectural Model" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 transition-all duration-500" data-alt="Highly detailed 3D printed architectural model of a modern skyscraper with delicate structural lattice and translucent elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOAyS89ucnvWtAa4Z77OhufLBoeGYw7V8dQGJiE6wYtJsNA2J5JhqUcuWzp7TayMCSEXjQ5y5z-R2k39DD5ZtXXT1lW2p6YGQXrz0xl4AlXNUk5bbSKlB2jhsNJauTB0fJyhp79FKcjLxA3owNm6lM1vT7CzcyAGjQoKcs-avmYXVuypcOxCTkHivK7cU4QIg5rfZMRT51ugtuXvhsh2Q9szyppzw33ZosCrvmfsHbY0divioCDJHB0UACG2FtnIDQR4SFA-j9X2mB"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-white mb-2 uppercase">Architectural Model</h3>
+<p class="font-caption text-caption text-zinc-500 uppercase tracking-wider mb-4">Material: White Resin, Resolution: 50 microns</p>
+<div class="h-1 w-full bg-zinc-800 relative overflow-hidden">
+<div class="absolute inset-0 bg-amber-300 w-full"></div>
+</div>
+</div>
+</div>
+<!-- Small Item 2 -->
+<div class="portfolio-card md:col-span-4 bg-surface-container tactile-card group" data-category="automotive">
+<div class="aspect-square relative overflow-hidden bg-black">
+<img alt="Functional Gear Assembly" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 transition-all duration-500" data-alt="Set of black 3D printed nylon gears and mechanical parts arranged neatly on a dark technical workbench" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGiei_GTv1ZJdudvM9O478gnkpcsDRvixOHokttU8zvFkkdAvtBLKUgZJTPSsXtI8jyglsgHV_Opg3rtrhQJZuSsvgMGsTIgvkY-MLlGKcdFlSkRMzLPBnR0ij2_JOKsjIoLnfIk3q9XbUdbs5WjPHZsx7WMYQWeVSwCj3HdXCcb-nMhpQGOAPUL_M2BQqgco9JEL8VztfLAFPBYkiYSCt0enuEIATpek3m-dVk1JmGf95HCqqNco92rcc2bCdwI2_8YUTym03635M"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-white mb-2 uppercase">Planetary Gearset</h3>
+<p class="font-caption text-caption text-zinc-500 uppercase tracking-wider mb-4">Material: PA-12 Nylon, Resolution: 100 microns</p>
+<div class="h-1 w-full bg-zinc-800 relative overflow-hidden">
+<div class="absolute inset-0 bg-amber-300 w-3/4"></div>
+</div>
+</div>
+</div>
+<!-- Medium Item -->
+<div class="portfolio-card md:col-span-8 bg-surface-container tactile-card group flex flex-col md:flex-row" data-category="other">
+<div class="md:w-1/2 aspect-square md:aspect-auto relative overflow-hidden">
+<img alt="Lattice Structure" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 transition-all duration-500" data-alt="Microscopic view of a complex 3D printed lattice structure designed for lightweight aerospace applications with sharp geometric patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDT_Kcuvi_u7q5nu9vaWzo7mRQlTx0bDo69DQ6Lx85FzCeQao6122rfR_tLUHNWH0KtlcRNZ5fko-uBJ7epKKKX7BYGRzbBFTU2rJmnqzBrI7bEQ_ef4tfC8yRVkbjvwhbPDPdtEYUGbk038P9NHzhyXwI1K-jZ4IX1avMaiIF3a0ERyioUXvvb03EZemRtBJigJT8O3ImgN64AniRFXEkdQG0IPJxh7mE2jru8O2Y3Y-4uzqP3wOAXd61m_sH0Qsnn9eGgkvH8RCy"/>
+</div>
+<div class="md:w-1/2 p-8 flex flex-col justify-center bg-zinc-900/50 backdrop-blur-sm">
+<span class="font-label-mono text-[10px] text-zinc-500 uppercase tracking-[0.2em] mb-4">Specialized Engineering</span>
+<h3 class="font-headline-lg text-headline-lg text-white mb-4 uppercase">Lattice Heat Exchanger</h3>
+<p class="font-body-md text-zinc-400 mb-6">Designed using generative algorithms to maximize surface area for thermal dissipation in liquid-cooled systems.</p>
+<ul class="space-y-2 border-t border-zinc-800 pt-6">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-amber-300 text-sm" data-icon="settings">settings</span>
+<span class="font-label-mono text-xs uppercase text-zinc-300">Material: AlSi10Mg Aluminum</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-amber-300 text-sm" data-icon="precision_manufacturing">precision_manufacturing</span>
+<span class="font-label-mono text-xs uppercase text-zinc-300">Tolerance: Â±0.05mm</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Small Item 3 -->
+<div class="portfolio-card md:col-span-4 bg-surface-container tactile-card group" data-category="medical">
+<div class="aspect-square relative overflow-hidden bg-black">
+<img alt="Medical Implant" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 transition-all duration-500" data-alt="Sleek 3D printed medical prosthetic part with a smooth matte surface and ergonomic organic curves in a clinical setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtt4020ZhrY86XoP3qnMa2Uxp9URHaWCGMz8mxYZzZ1wslgsygRdtHdcts6U2rJxLlkFivEIm0kts7hr40FHdj58tHtpEuFLSETVNK0OGtinco_C3s31mEC3qEw4gjgt2Z9YD_HXNOG1Xhm27_Bn9Lhcw62gHEzkM7rRGkBjYh6dImGH1dG8K3oLFBiUi33sFBoDAapKiO8N5iu2csPJJLiUIqtnK4aNBkkBssc0LBikidk7WMZHMB6mJFb6e9tbdB87QwUP1Io9nH"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-white mb-2 uppercase">Cranial Implant</h3>
+<p class="font-caption text-caption text-zinc-500 uppercase tracking-wider mb-4">Material: PEEK Biocompatible, SLM Process</p>
+<div class="h-1 w-full bg-zinc-800 relative overflow-hidden">
+<div class="absolute inset-0 bg-amber-300 w-full"></div>
+</div>
+</div>
+</div>
+<!-- Small Item 4 -->
+<div class="portfolio-card md:col-span-4 bg-surface-container tactile-card group" data-category="automotive">
+<div class="aspect-square relative overflow-hidden bg-black">
+<img alt="Automotive Part" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 transition-all duration-500" data-alt="High performance 3D printed automotive engine manifold showing complex geometry and rough industrial cast-like texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_TGCndlz5o46SC7OeWRnC37JnmU6dDyXyRdZsv6tuTLkbugnA-Q7dbNQ3AMwxsN5KaecczuyuZ3EbRMlTDT3IcOU_YxbUqysKdWE1LqmQghQs1QqoHG8Nx51Ltqy0xdjtwsQo2czasZDoYU4QJafGPvRhFlPSrCm2ZMRCwILh0iM4sOgnBLj_7DsI3L_QIIbvBGgoIaaJ9wJ7JFsfgSESotao1iRpISb3reoULqbURLlpi6PSfSPL6mA4hh1BQiYVLJxC17U-8zyK"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-white mb-2 uppercase">Intake Manifold</h3>
+<p class="font-caption text-caption text-zinc-500 uppercase tracking-wider mb-4">Material: Carbon-Fiber Nylon (CF-PA12)</p>
+<div class="h-1 w-full bg-zinc-800 relative overflow-hidden">
+<div class="absolute inset-0 bg-amber-300 w-1/2"></div>
+</div>
+</div>
+</div>
+<!-- Small Item 5 -->
+<div class="portfolio-card md:col-span-4 bg-surface-container tactile-card group" data-category="other">
+<div class="aspect-square relative overflow-hidden bg-black">
+<img alt="Drone Frame" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 transition-all duration-500" data-alt="Ultra lightweight 3D printed drone chassis featuring an exoskeleton structure and mounting points for sensors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP0QprixpaOxJzYh02xYGfR_Y_Uzn8giP-lFbPigB9CC24TDRn2yKdJUNuYegaXnlNeU95xLICcCi4wnSNd3hpAFm2nYC4Mguxl4PByLHzuowNLIpd_1reKXpEtSLHqkz1Y3cHGzHmXzDRVdGFc__6jicdBO0Y2-tJEclkqnL66f2iAAOcmuhySQb8tu-5MX_1bguXbwCTdqrQ8xv3L60iHcy68VXyud98tTXzLBQqBeHhubLmegywa-O646FshfUDJm1PBh2NA9eb"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md text-white mb-2 uppercase">UAV Chassis</h3>
+<p class="font-caption text-caption text-zinc-500 uppercase tracking-wider mb-4">Material: SLS Polypropylene, Ultralight</p>
+<div class="h-1 w-full bg-zinc-800 relative overflow-hidden">
+<div class="absolute inset-0 bg-amber-300 w-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- CTA Section -->
+<section class="mt-24 p-12 bg-zinc-900/50 border border-zinc-800 flex flex-col items-center text-center">
+<h2 class="font-headline-lg text-headline-lg text-white mb-4 uppercase">Have a Technical Requirement?</h2>
+<p class="font-body-md text-zinc-400 max-w-xl mb-8">
+        Our team of engineers can help you choose the right material and additive process for your specific application.
+      </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="bg-primary-container text-on-primary-fixed px-8 py-3 font-['Space_Grotesk'] font-bold uppercase tracking-tight active:scale-95 transition-transform inline-block" href="contact.html">
+          Upload Your CAD File
+        </a>
+<a class="bg-transparent border border-zinc-700 text-white px-8 py-3 font-['Space_Grotesk'] font-bold uppercase tracking-tight hover:bg-zinc-800 active:scale-95 transition-transform inline-block" href="contact.html">
+          Consult an Engineer
+        </a>
+</div>
+</section>
+</main>
+<script>
+const filterButtons = document.querySelectorAll(".portfolio-filter");
+const portfolioCards = document.querySelectorAll(".portfolio-card");
+
+function setPortfolioFilter(filter) {
+  filterButtons.forEach((button) => {
+    const active = button.dataset.filter === filter;
+    button.classList.toggle("text-amber-200", active);
+    button.classList.toggle("bg-amber-300/10", active);
+    button.classList.toggle("border", active);
+    button.classList.toggle("border-amber-300/20", active);
+    button.classList.toggle("text-zinc-400", !active);
+  });
+
+  portfolioCards.forEach((card) => {
+    const shouldShow = filter === "all" || card.dataset.category === filter;
+    card.style.display = shouldShow ? "" : "none";
+  });
+}
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => setPortfolioFilter(button.dataset.filter));
+});
+</script>
+<!-- Footer -->
+<footer class="w-full border-t border-zinc-800 bg-zinc-950 mt-auto">
+<div class="max-w-[1440px] mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="text-lg font-black text-zinc-100 font-['Space_Grotesk'] uppercase tracking-tighter">MYFAB SOLUTIONS</span>
+<p class="text-zinc-500 font-['Space_Grotesk'] text-[10px] tracking-[0.2em] font-medium">&copy; 2025 MyFab Solutions</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.2em] font-medium">
+<a class="text-zinc-500 hover:text-zinc-100 transition-colors opacity-80 hover:opacity-100" href="#">Instagram</a>
+<a class="text-zinc-500 hover:text-zinc-100 transition-colors opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="text-zinc-500 hover:text-zinc-100 transition-colors opacity-80 hover:opacity-100" href="#">Twitter</a>
+<a class="text-zinc-500 hover:text-zinc-100 transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</body></html>

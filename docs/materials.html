@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Materials | MyFab Solutions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      fontFamily: {
+        display: ["Space Grotesk", "sans-serif"],
+        body: ["Inter", "sans-serif"]
+      }
+    }
+  }
+};
+</script>
+<style>
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b3b3b;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4b04c;
+}
+</style>
+</head>
+<body class="overflow-x-hidden bg-[#131313] text-[#e4e2e1]">
+<header class="fixed inset-x-0 top-0 z-50 border-b border-zinc-800 bg-zinc-950/90 backdrop-blur-md shadow-lg shadow-black/50">
+<div class="mx-auto flex h-20 w-full max-w-[1440px] items-center justify-between px-6 lg:px-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[28px] text-amber-300">precision_manufacturing</span>
+<span class="font-['Space_Grotesk'] text-2xl font-semibold tracking-tight text-amber-200">MyFab Solutions</span>
+</div>
+<nav class="hidden items-center gap-8 md:flex">
+<a class="font-['Space_Grotesk'] text-sm tracking-tight text-neutral-400 transition-colors hover:text-amber-200" href="index.html">Home</a>
+<a class="border-b-2 border-amber-300 pb-1 font-['Space_Grotesk'] text-sm tracking-tight text-amber-200" href="materials.html">Materials</a>
+<a class="font-['Space_Grotesk'] text-sm tracking-tight text-neutral-400 transition-colors hover:text-amber-200" href="portfolio.html">Portfolio</a>
+<a class="font-['Space_Grotesk'] text-sm tracking-tight text-neutral-400 transition-colors hover:text-amber-200" href="contact.html">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<label class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-sm text-neutral-500">search</span>
+<input class="w-56 border border-[#333333] bg-[#1c1c1c] py-3 pl-10 pr-4 text-[10px] uppercase tracking-[0.24em] text-neutral-300 placeholder:text-neutral-500 focus:border-[#d4b04c] focus:outline-none" placeholder="Search materials..." type="text">
+</label>
+<a class="bg-[#d4b04c] px-5 py-3 font-['Space_Grotesk'] text-xs font-bold uppercase tracking-wider text-black transition hover:bg-[#e0bf62]" href="contact.html">Upload Model</a>
+</div>
+</div>
+</header>
+
+<div class="flex min-h-screen pt-20">
+<aside class="hidden w-72 shrink-0 border-r border-[#333333] bg-[#1c1c1c] lg:fixed lg:bottom-0 lg:left-0 lg:top-20 lg:flex lg:flex-col">
+<div class="px-6 py-6">
+<div class="mb-8 flex items-center gap-3">
+<div class="flex h-11 w-11 items-center justify-center border border-[#333333] bg-[#2a2a2a]">
+<span class="material-symbols-outlined text-[#d4b04c]">layers</span>
+ </div>
+<div>
+<h2 class="font-['Space_Grotesk'] text-lg uppercase tracking-wider text-[#d4b04c]">Material Library</h2>
+<p class="text-[11px] tracking-[0.12em] text-neutral-500">Technical Data Sheets</p>
+</div>
+</div>
+
+<div class="mb-8">
+<p class="mb-4 font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.28em] text-neutral-500">Categories</p>
+<div class="space-y-2">
+<button class="material-nav flex w-full items-center gap-3 rounded-r-full px-5 py-4 text-left font-['Space_Grotesk'] text-sm uppercase tracking-wider text-neutral-300 transition" data-view="filaments" type="button">
+<span class="material-symbols-outlined text-base">texture</span>
+<span>Filaments</span>
+</button>
+<button class="material-nav flex w-full items-center gap-3 rounded-r-full px-5 py-4 text-left font-['Space_Grotesk'] text-sm uppercase tracking-wider text-neutral-300 transition" data-view="resins" type="button">
+<span class="material-symbols-outlined text-base">water_drop</span>
+<span>Resins</span>
+</button>
+</div>
+</div>
+
+<div class="mb-8">
+<p class="mb-4 font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.28em] text-neutral-500">Technical Filters</p>
+<div class="space-y-5">
+<div>
+<label class="mb-3 block font-['Space_Grotesk'] text-[11px] uppercase tracking-wider text-neutral-400">Strength</label>
+<input class="material-range h-1 w-full cursor-pointer appearance-none rounded-lg bg-[#353535]" type="range">
+</div>
+<div>
+<label class="mb-3 block font-['Space_Grotesk'] text-[11px] uppercase tracking-wider text-neutral-400">Heat Resistance (&deg;C)</label>
+<input class="material-range h-1 w-full cursor-pointer appearance-none rounded-lg bg-[#353535]" type="range">
+</div>
+<div class="space-y-3">
+<label class="flex items-center gap-3 text-xs uppercase tracking-wider text-neutral-300">
+<input class="h-4 w-4 rounded-none border-[#444444] bg-[#121212] text-[#d4b04c] focus:ring-0" type="checkbox">
+<span>UV Resistant</span>
+</label>
+<label class="flex items-center gap-3 text-xs uppercase tracking-wider text-neutral-300">
+<input class="h-4 w-4 rounded-none border-[#444444] bg-[#121212] text-[#d4b04c] focus:ring-0" type="checkbox">
+<span>Food Safe</span>
+</label>
+<label class="flex items-center gap-3 text-xs uppercase tracking-wider text-neutral-300">
+<input class="h-4 w-4 rounded-none border-[#444444] bg-[#121212] text-[#d4b04c] focus:ring-0" type="checkbox">
+<span>Biocompatible</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+
+<div class="mt-auto px-6 pb-8">
+<a class="block border border-[#d4b04c] px-4 py-4 text-center font-['Space_Grotesk'] text-xs font-bold uppercase tracking-[0.28em] text-[#d4b04c] transition hover:bg-[#d4b04c] hover:text-black" href="contact.html">Order Sample Kit</a>
+</div>
+</aside>
+
+<main class="flex-1 bg-[#131313] px-5 py-8 md:px-8 lg:ml-72">
+<div class="mx-auto max-w-6xl">
+<div class="mb-8 flex gap-3 lg:hidden">
+<button class="material-mobile rounded-full border border-[#333333] px-4 py-3 font-['Space_Grotesk'] text-xs uppercase tracking-[0.2em] text-neutral-300" data-view="filaments" type="button">Filaments</button>
+<button class="material-mobile rounded-full border border-[#333333] px-4 py-3 font-['Space_Grotesk'] text-xs uppercase tracking-[0.2em] text-neutral-300" data-view="resins" type="button">Resins</button>
+</div>
+
+<section class="material-panel" data-view="filaments">
+<header class="mb-10 border-l-4 border-[#d4b04c] pl-6">
+<h1 class="font-['Space_Grotesk'] text-3xl uppercase tracking-tight text-white md:text-5xl">Filament Materials</h1>
+<p class="mt-3 max-w-3xl text-base leading-8 text-neutral-400 md:text-[17px]">
+Strong, practical printing materials for everyday parts, organizers, holders, custom accessories, and useful one-off builds.
+</p>
+</header>
+
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]">
+<div class="mb-4 aspect-video overflow-hidden border border-[#333333] bg-[#242424]">
+<img alt="PLA Plus" class="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80">
+</div>
+<div class="px-3 pb-4">
+<h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">PLA+</h2>
+<p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Display / Hobby / Basic Parts</p>
+<div class="mb-6 grid grid-cols-2 gap-4">
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Ease Of Use</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Easy</p>
+</div>
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Finish</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Clean</p>
+</div>
+</div>
+<p class="mb-6 text-sm leading-8 text-neutral-400">A simple option for display pieces, desk items, and ideas you want to prototype quickly without extra complexity.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2">
+<span class="h-4 w-4 rounded-full border border-[#333333] bg-white"></span>
+<span class="h-4 w-4 rounded-full border border-[#333333] bg-neutral-500"></span>
+</div>
+<a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a>
+</div>
+</div>
+</article>
+
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]">
+<div class="mb-4 aspect-video overflow-hidden border border-[#333333] bg-[#242424]">
+<img alt="PETG" class="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1200&q=80">
+</div>
+<div class="px-3 pb-4">
+<h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">PETG</h2>
+<p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Functional / Durable / Everyday</p>
+<div class="mb-6 grid grid-cols-2 gap-4">
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Strength</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">High</p>
+</div>
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Weather</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Good</p>
+</div>
+</div>
+<p class="mb-6 text-sm leading-8 text-neutral-400">A reliable all-rounder for mounts, covers, organizers, containers, and custom pieces that need a bit more toughness.</p>
+<div class="flex items-center justify-between">
+<div class="rounded-full bg-[#2b4b72] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#9cc7ff]">In Stock</div>
+<a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a>
+</div>
+</div>
+</article>
+
+<article class="group flex flex-col border border-[#d4b04c] bg-[#1c1c1c] p-3 transition hover:border-[#e0bf62]">
+<div class="absolute"></div>
+<div class="mb-4 aspect-video overflow-hidden border border-[#333333] bg-[#242424]">
+<img alt="TPU" class="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1616627454755-6d4fdbd6c0aa?auto=format&fit=crop&w=1200&q=80">
+</div>
+<div class="px-3 pb-4">
+<h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">TPU Flexible</h2>
+<p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Soft Touch / Bendable</p>
+<div class="mb-6 border border-[#333333] bg-[#121212] p-4">
+<div class="flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-neutral-500">
+<span>Flexibility</span>
+<span class="font-['Space_Grotesk'] text-2xl normal-case tracking-normal text-[#d4b04c]">80A</span>
+</div>
+<div class="mt-4 h-2 overflow-hidden bg-[#333333]">
+<div class="h-full w-[78%] bg-[#d4b04c]"></div>
+</div>
+</div>
+<p class="mb-6 text-sm leading-8 text-neutral-400">Best for grips, protective pads, soft cases, and parts that need to bend instead of snap.</p>
+<div class="flex items-center justify-between">
+<span class="h-4 w-4 rounded-full border border-[#333333] bg-neutral-200"></span>
+<a class="material-symbols-outlined text-[#d4b04c]" href="contact.html">arrow_forward</a>
+</div>
+</div>
+</article>
+
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]">
+<div class="mb-4 aspect-video overflow-hidden border border-[#333333] bg-[#242424]">
+<img alt="ABS" class="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1581092919535-7146ff1a5907?auto=format&fit=crop&w=1200&q=80">
+</div>
+<div class="px-3 pb-4">
+<h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">ABS</h2>
+<p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Impact Friendly</p>
+<div class="mb-6 grid grid-cols-2 gap-4">
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Impact</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Good</p>
+</div>
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Heat</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Better</p>
+</div>
+</div>
+<p class="mb-6 text-sm leading-8 text-neutral-400">A stronger choice for enclosures, utility items, and practical parts that may deal with more wear.</p>
+<div class="flex items-center justify-between">
+<span class="rounded-full bg-[#253246] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#8fb4e8]">Low Stock</span>
+<a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a>
+</div>
+</div>
+</article>
+
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]">
+<div class="mb-4 aspect-video overflow-hidden border border-[#333333] bg-[#242424]">
+<img alt="Nylon" class="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0" src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=1200&q=80">
+</div>
+<div class="px-3 pb-4">
+<h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Nylon</h2>
+<p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Wear Resistant</p>
+<div class="mb-6 grid grid-cols-2 gap-4">
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Durability</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">High</p>
+</div>
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Wear</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Low</p>
+</div>
+</div>
+<p class="mb-6 text-sm leading-8 text-neutral-400">Useful for mechanical-style parts, moving pieces, and jobs where long-term toughness matters most.</p>
+<div class="flex items-center justify-between">
+<span class="h-4 w-4 rounded-full border border-[#333333] bg-[#4b8ee8]"></span>
+<a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a>
+</div>
+</div>
+</article>
+
+<aside class="flex min-h-[540px] flex-col justify-center border border-dashed border-[#333333] bg-[#1c1c1c] p-8 text-center">
+<div class="mx-auto flex h-[72px] w-[72px] items-center justify-center rounded-[18px] border border-[#d4b04c]">
+<span class="material-symbols-outlined text-4xl text-[#d4b04c]">upload_file</span>
+</div>
+<h3 class="mt-8 font-['Space_Grotesk'] text-4xl uppercase leading-tight text-white md:text-5xl">Need a full comparison?</h3>
+<p class="mt-5 text-base leading-8 text-neutral-400">Send us your design, target use, or preferred finish and we can help compare filament options for your project.</p>
+<a class="mt-10 font-['Space_Grotesk'] text-sm font-bold uppercase tracking-[0.28em] text-[#d4b04c]" href="contact.html">Get Material Advice</a>
+</aside>
+</div>
+
+<div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">PLA</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Basic / Low Warp</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Ease</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Very Easy</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Warp</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Low</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">The simplest choice for everyday prints, decor pieces, prototypes, and beginner-friendly projects.</p><div class="flex items-center justify-between"><span class="rounded-full bg-[#2b4b72] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#9cc7ff]">In Stock</span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">PLA Pro</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Basic / Stronger</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Strength</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Higher</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Use</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">General</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">A tougher PLA-style option when you want the same easy workflow with better everyday durability.</p><div class="flex items-center justify-between"><span class="h-4 w-4 rounded-full border border-[#333333] bg-neutral-200"></span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Silk PLA</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Aesthetic / Shiny</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Finish</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Glossy</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Best For</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Display</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">Made for decorative prints and gifts where the final look matters more than rugged performance.</p><div class="flex items-center justify-between"><span class="h-4 w-4 rounded-full border border-[#333333] bg-white"></span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Matte PLA</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Aesthetic / Non-Glossy</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Finish</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Soft Matte</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Look</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Clean</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">Useful for cleaner-looking models, product mockups, and modern decorative pieces with less shine.</p><div class="flex items-center justify-between"><span class="rounded-full bg-[#253246] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#8fb4e8]">Low Stock</span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">ABS+</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Engineering / Improved ABS</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Warp</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Lower</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Heat</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Good</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">A more user-friendly ABS style material when you want strength and heat resistance with less printing drama.</p><div class="flex items-center justify-between"><span class="rounded-full bg-[#2b4b72] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#9cc7ff]">In Stock</span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">ASA</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Outdoor / UV Resistant</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Sunlight</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Stable</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Use</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Outdoor</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">A good fit for outdoor labels, brackets, covers, and parts that need to handle sun exposure better than ABS.</p><div class="flex items-center justify-between"><span class="h-4 w-4 rounded-full border border-[#333333] bg-[#4b8ee8]"></span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Polycarbonate</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Industrial / High Heat</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Heat</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">High</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Strength</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Very High</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">Best for demanding jobs where you care about heat resistance, stiffness, and stronger functional performance.</p><div class="flex items-center justify-between"><span class="rounded-full bg-[#253246] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#8fb4e8]">Special Order</span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">PP</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Chemical Resistant</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Chemicals</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Good</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Flex</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Moderate</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">Useful for containers, living-hinge style parts, and jobs that may see moisture or chemical contact.</p><div class="flex items-center justify-between"><span class="h-4 w-4 rounded-full border border-[#333333] bg-neutral-200"></span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">PEEK / PEI</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Ultra High-End</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Grade</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Premium</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Access</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Rare</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">Advanced high-end options typically used only for specialty requirements rather than standard consumer projects.</p><div class="flex items-center justify-between"><span class="rounded-full bg-[#253246] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#8fb4e8]">By Request</span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">TPE</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Flexible / Soft</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Softness</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Higher</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Feel</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Rubbery</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">Softer than TPU and helpful when you want a more rubber-like touch for grips, pads, or wearable parts.</p><div class="flex items-center justify-between"><span class="h-4 w-4 rounded-full border border-[#333333] bg-neutral-200"></span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Wood-Filled PLA</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Specialty / Texture</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Look</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Wood-Like</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Best For</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Decor</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">Chosen for decorative pieces when you want a warmer natural look instead of a standard plastic finish.</p><div class="flex items-center justify-between"><span class="h-4 w-4 rounded-full border border-[#333333] bg-[#8f6b4c]"></span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Carbon Fiber Blend</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Composite / Stiff</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Rigidity</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">High</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Finish</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Matte</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">Available in PLA-CF, PETG-CF, or Nylon-CF when you want a stiffer part with a more technical finish.</p><div class="flex items-center justify-between"><span class="rounded-full bg-[#253246] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#8fb4e8]">By Request</span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Specialty Effects</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Glow / Marble / Color Shift</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Styles</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Many</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Focus</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Visual</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">Includes glow-in-the-dark, UV or temperature color-changing, marble effect, metal-filled, and glass fiber options.</p><div class="flex items-center justify-between"><span class="h-4 w-4 rounded-full border border-[#333333] bg-[#d4b04c]"></span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+</div>
+</section>
+
+<section class="material-panel hidden" data-view="resins">
+<header class="mb-10 border-l-4 border-[#d4b04c] pl-6">
+<h1 class="font-['Space_Grotesk'] text-3xl uppercase tracking-tight text-white md:text-5xl">Engineered Resins</h1>
+<p class="mt-3 max-w-3xl text-base leading-8 text-neutral-400 md:text-[17px]">
+Smooth, detailed materials for miniatures, display pieces, presentation models, jewelry masters, and sharper visual results.
+</p>
+</header>
+
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]">
+<div class="mb-4 aspect-video overflow-hidden border border-[#333333] bg-[#242424]">
+<img alt="Standard Resin" class="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB53ZhceYCjtI6Miv1CCSOEkTKy_V1Mtz4nCOCu0yQJxq-M55wrGdRJ1Zmj03RpiI-eqGSSsFNCCKJ19sjONIcYsYfERzV7LshwZTRytTB4Yx3XZUrl6ny23WFnmjbAZ3coe1ZFklzR6Qk6RBzJCNbwBdw5wHJcVbbex6tcZVsShShffKSDeXAZ2RaMQgVXe4WVLH5rxO1dBLfQrO5JyMVMCbnQOMGcue0xixiriq5ilUOvYnQc6Q24-Ajf-uU6DsTTNwIGWq22BoRW">
+</div>
+<div class="px-3 pb-4">
+<h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Standard Resin</h2>
+<p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Clear / Grey / White</p>
+<div class="mb-6 grid grid-cols-2 gap-4">
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Tensile Strength</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">65 <span class="text-[11px]">MPa</span></p>
+</div>
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Heat Deflect</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">75 <span class="text-[11px]">&deg;C</span></p>
+</div>
+</div>
+<p class="mb-6 text-sm leading-8 text-neutral-400">A popular resin for visual prototypes and detailed models with a clean surface and crisp small features.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2">
+<span class="h-4 w-4 rounded-full border border-[#333333] bg-neutral-100"></span>
+<span class="h-4 w-4 rounded-full border border-[#333333] bg-neutral-600"></span>
+</div>
+<a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a>
+</div>
+</div>
+</article>
+
+<article class="group relative flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]">
+<div class="absolute left-5 top-5 z-10 border border-[#d4b04c] bg-black/80 px-3 py-1 font-['Space_Grotesk'] text-[10px] font-bold uppercase tracking-[0.2em] text-[#d4b04c]">High Impact</div>
+<div class="mb-4 aspect-video overflow-hidden border border-[#333333] bg-[#242424]">
+<img alt="Tough Resin" class="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB53ZhceYCjtI6Miv1CCSOEkTKy_V1Mtz4nCOCu0yQJxq-M55wrGdRJ1Zmj03RpiI-eqGSSsFNCCKJ19sjONIcYsYfERzV7LshwZTRytTB4Yx3XZUrl6ny23WFnmjbAZ3coe1ZFklzR6Qk6RBzJCNbwBdw5wHJcVbbex6tcZVsShShffKSDeXAZ2RaMQgVXe4WVLH5rxO1dBLfQrO5JyMVMCbnQOMGcue0xixiriq5ilUOvYnQc6Q24-Ajf-uU6DsTTNwIGWq22BoRW">
+</div>
+<div class="px-3 pb-4">
+<h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Tough 2000 Resin</h2>
+<p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Stronger Detailed Parts</p>
+<div class="mb-6 grid grid-cols-2 gap-4">
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Elongation</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">48 <span class="text-[11px]">%</span></p>
+</div>
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Impact</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">High</p>
+</div>
+</div>
+<p class="mb-6 text-sm leading-8 text-neutral-400">A stronger resin choice for parts that still need a nice finish but must handle more use than standard display prints.</p>
+<div class="flex items-center justify-between">
+<span class="h-4 w-4 rounded-full border border-[#333333] bg-[#32415c]"></span>
+<a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a>
+</div>
+</div>
+</article>
+
+<article class="group flex flex-col border border-[#d4b04c] bg-[#1c1c1c] p-3 transition hover:border-[#e0bf62]">
+<div class="mb-4 aspect-video overflow-hidden border border-[#333333] bg-[#242424]">
+<img alt="Flexible Resin" class="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwmyfV0KU1w9jZFBJ1v3l37zwnp4vWnL0M8e4lNVP8hOjH5RziQeNfV1N8rF8ZzB5zQ9wq1A2lXhB7B8qjBIfRzQ2S6Lwqk7KSkZFxVd8nD2dYjv8W3eV8r8AkWbYw5k0d4MTu2E2Fq4X2rj9UQjAs7_2h8jWzq1QjQmK2gM0PzvRr6wq0sR7Oa4q2WJQf1sD8HfTtC4">
+</div>
+<div class="px-3 pb-4">
+<h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Flexible 80A Resin</h2>
+<p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Soft Touch / Elastomeric</p>
+<div class="mb-6 border border-[#333333] bg-[#121212] p-4">
+<div class="flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-neutral-500">
+<span>Shore Hardness</span>
+<span class="font-['Space_Grotesk'] text-2xl normal-case tracking-normal text-[#d4b04c]">80A</span>
+</div>
+<div class="mt-4 h-2 overflow-hidden bg-[#333333]">
+<div class="h-full w-[79%] bg-[#d4b04c]"></div>
+</div>
+</div>
+<p class="mb-6 text-sm leading-8 text-neutral-400">Useful for soft grips, flexible seals, wearable details, and custom pieces that should feel less rigid.</p>
+<div class="flex items-center justify-between">
+<span class="h-4 w-4 rounded-full border border-[#333333] bg-neutral-200"></span>
+<a class="material-symbols-outlined text-[#d4b04c]" href="contact.html">arrow_forward</a>
+</div>
+</div>
+</article>
+
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]">
+<div class="mb-4 aspect-video overflow-hidden border border-[#333333] bg-[#242424]">
+<img alt="Durable Resin" class="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5d2AqYw2Y5v5O5AJ1qG3N4pQb6wq2m7b2d7n1xQ0vQ2eL5aY6d0o8m2W9J5Z4W8mS2rQ0b1fG6gJ2cG2xN8oC9gA1zK2fR7zB1aH0qM5xD8fN7mA2gM3wV9xL7tD5uP6">
+</div>
+<div class="px-3 pb-4">
+<h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Durable Resin</h2>
+<p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Wear Resistant</p>
+<div class="mb-6 grid grid-cols-2 gap-4">
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Friction</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Low</p>
+</div>
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Ductility</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">High</p>
+</div>
+</div>
+<p class="mb-6 text-sm leading-8 text-neutral-400">Helpful for moving parts, squeeze-style pieces, and projects where a little flex and wear resistance are useful.</p>
+<div class="flex items-center justify-between">
+<span class="h-4 w-4 rounded-full border border-[#333333] bg-neutral-200"></span>
+<a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a>
+</div>
+</div>
+</article>
+
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]">
+<div class="mb-4 aspect-video overflow-hidden border border-[#333333] bg-[#242424]">
+<img alt="Castable Wax Resin" class="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB53ZhceYCjtI6Miv1CCSOEkTKy_V1Mtz4nCOCu0yQJxq-M55wrGdRJ1Zmj03RpiI-eqGSSsFNCCKJ19sjONIcYsYfERzV7LshwZTRytTB4Yx3XZUrl6ny23WFnmjbAZ3coe1ZFklzR6Qk6RBzJCNbwBdw5wHJcVbbex6tcZVsShShffKSDeXAZ2RaMQgVXe4WVLH5rxO1dBLfQrO5JyMVMCbnQOMGcue0xixiriq5ilUOvYnQc6Q24-Ajf-uU6DsTTNwIGWq22BoRW">
+</div>
+<div class="px-3 pb-4">
+<h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Castable Wax Resin</h2>
+<p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Jewelry / Dental</p>
+<div class="mb-6 grid grid-cols-2 gap-4">
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Ash Content</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">0.1 <span class="text-[11px]">%</span></p>
+</div>
+<div class="border border-[#333333] bg-[#121212] p-3">
+<p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Detail</p>
+<p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Ultra</p>
+</div>
+</div>
+<p class="mb-6 text-sm leading-8 text-neutral-400">Best when you need fine details for molds, jewelry-style pieces, or highly precise small-format presentation work.</p>
+<div class="flex items-center justify-between">
+<span class="h-4 w-4 rounded-full border border-[#333333] bg-[#4b8ee8]"></span>
+<a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a>
+</div>
+</div>
+</article>
+
+<aside class="flex min-h-[540px] flex-col justify-center border border-dashed border-[#333333] bg-[#1c1c1c] p-8 text-center">
+<div class="mx-auto flex h-[72px] w-[72px] items-center justify-center rounded-[18px] border border-[#d4b04c]">
+<span class="material-symbols-outlined text-4xl text-[#d4b04c]">upload_file</span>
+</div>
+<h3 class="mt-8 font-['Space_Grotesk'] text-4xl uppercase leading-tight text-white md:text-5xl">Need a full comparison?</h3>
+<p class="mt-5 text-base leading-8 text-neutral-400">Upload your CAD file or tell us what you want the part to do, and we can guide you to the right resin choice.</p>
+<a class="mt-10 font-['Space_Grotesk'] text-sm font-bold uppercase tracking-[0.28em] text-[#d4b04c]" href="contact.html">Get Technical Data Sheet</a>
+</aside>
+</div>
+
+<div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">High-Detail Resin</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Miniatures / Models</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Detail</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Very Fine</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Surface</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Smooth</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">Ideal for miniatures, display figures, and small models that need crisp edges and fine visual detail.</p><div class="flex items-center justify-between"><span class="rounded-full bg-[#2b4b72] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#9cc7ff]">In Stock</span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Engineering Resin</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Strong / Durable</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Strength</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">High</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Use</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Functional</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">A stronger all-round resin for parts that still need a clean finish but should handle more practical use.</p><div class="flex items-center justify-between"><span class="h-4 w-4 rounded-full border border-[#333333] bg-[#4b8ee8]"></span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">High Temperature Resin</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Heat Resistant</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Heat</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">High</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Fit</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Stable</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">Best for resin parts that may see higher temperatures than standard display or desk-use prints.</p><div class="flex items-center justify-between"><span class="rounded-full bg-[#253246] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#8fb4e8]">By Request</span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Rigid Resin</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Stiff Parts</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Stiffness</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">High</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Feel</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Firm</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">A good pick when you want a harder, stiffer resin part with less flex under normal handling.</p><div class="flex items-center justify-between"><span class="h-4 w-4 rounded-full border border-[#333333] bg-neutral-200"></span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Elastic Resin</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Soft / Stretchable</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Stretch</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">High</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Feel</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Soft</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">Softer than standard flexible resin and useful for stretchable details or very soft touch points.</p><div class="flex items-center justify-between"><span class="h-4 w-4 rounded-full border border-[#333333] bg-neutral-200"></span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Water-Washable Resin</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Easy Cleanup</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Cleanup</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Simple</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Use</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">General</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">Helpful when you want easier post-processing and do not want to rely on IPA for cleanup.</p><div class="flex items-center justify-between"><span class="rounded-full bg-[#2b4b72] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#9cc7ff]">In Stock</span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Low-Odor Resin</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Reduced Smell</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Odor</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Lower</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Use</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">General</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">A more comfortable option when you want the resin look with a less noticeable smell during handling.</p><div class="flex items-center justify-between"><span class="h-4 w-4 rounded-full border border-[#333333] bg-neutral-200"></span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Dental Resin</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Medical / Dental Use</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Precision</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">High</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Type</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Specialty</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">A specialty material intended for highly precise dental-style models and professional-use workflows.</p><div class="flex items-center justify-between"><span class="rounded-full bg-[#253246] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#8fb4e8]">By Request</span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Clear Resin</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Transparent Parts</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Look</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Clear</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Finish</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Polishable</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">Useful for transparent or translucent parts where light transmission and visual clarity matter more than strength.</p><div class="flex items-center justify-between"><span class="h-4 w-4 rounded-full border border-[#333333] bg-neutral-100"></span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Ceramic-Filled Resin</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Specialty Blend</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Texture</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Special</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Use</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Niche</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">A specialty option for unique surface feel and niche project requirements where a standard resin is not the goal.</p><div class="flex items-center justify-between"><span class="rounded-full bg-[#253246] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#8fb4e8]">Special Order</span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+<article class="group flex flex-col border border-[#333333] bg-[#1c1c1c] p-3 transition hover:border-[#d4b04c]"><div class="px-3 pb-4 pt-2"><h2 class="font-['Space_Grotesk'] text-2xl uppercase tracking-tight text-white">Biocompatible Resin</h2><p class="mb-6 mt-1 font-['Space_Grotesk'] text-xs uppercase tracking-[0.22em] text-neutral-500">Specialty / Certified Use</p><div class="mb-6 grid grid-cols-2 gap-4"><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Category</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">Medical</p></div><div class="border border-[#333333] bg-[#121212] p-3"><p class="mb-1 text-[9px] uppercase tracking-[0.18em] text-neutral-500">Access</p><p class="font-['Space_Grotesk'] text-2xl text-[#d4b04c]">By Request</p></div></div><p class="mb-6 text-sm leading-8 text-neutral-400">Reserved for specialized medical-style workflows where certified material behavior matters more than general appearance.</p><div class="flex items-center justify-between"><span class="rounded-full bg-[#253246] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#8fb4e8]">Special Order</span><a class="material-symbols-outlined text-neutral-500 transition group-hover:text-[#d4b04c]" href="contact.html">arrow_forward</a></div></div></article>
+</div>
+</section>
+</div>
+</main>
+</div>
+
+<footer class="border-t border-[#333333] bg-[#121212]">
+<div class="mx-auto flex max-w-[1440px] flex-col gap-6 px-6 py-12 lg:flex-row lg:items-end lg:justify-between lg:px-8">
+<div>
+<p class="font-['Space_Grotesk'] text-2xl font-bold uppercase tracking-wider text-neutral-500">MyFab Solutions</p>
+<p class="mt-3 font-['Space_Grotesk'] text-sm uppercase tracking-[0.22em] text-neutral-500">&copy; 2025 MyFab Solutions. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap gap-8">
+<a class="font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:text-white" href="#">Privacy Policy</a>
+<a class="font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:text-white" href="#">Terms of Service</a>
+<a class="font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.2em] text-neutral-500 transition-colors hover:text-white" href="#">API Documentation</a>
+<div class="flex items-center gap-2 font-['Space_Grotesk'] text-[11px] uppercase tracking-[0.2em] text-[#d4b04c]">
+<span class="h-2.5 w-2.5 rounded-full bg-[#d4b04c]"></span>
+<span>System Status</span>
+</div>
+</div>
+</div>
+</footer>
+
+<script>
+const desktopTabs = document.querySelectorAll(".material-nav");
+const mobileTabs = document.querySelectorAll(".material-mobile");
+const panels = document.querySelectorAll(".material-panel");
+
+function setMaterialView(view) {
+  panels.forEach((panel) => {
+    panel.classList.toggle("hidden", panel.dataset.view !== view);
+  });
+
+  desktopTabs.forEach((tab) => {
+    const active = tab.dataset.view === view;
+    tab.classList.toggle("bg-[#d4b04c]", active);
+    tab.classList.toggle("text-black", active);
+    tab.classList.toggle("font-bold", active);
+    tab.classList.toggle("mr-4", active);
+    tab.classList.toggle("text-neutral-300", !active);
+    tab.classList.toggle("hover:bg-[#2a2a2a]", !active);
+  });
+
+  mobileTabs.forEach((tab) => {
+    const active = tab.dataset.view === view;
+    tab.classList.toggle("border-[#d4b04c]", active);
+    tab.classList.toggle("bg-[#d4b04c]", active);
+    tab.classList.toggle("text-black", active);
+    tab.classList.toggle("font-bold", active);
+    tab.classList.toggle("text-neutral-300", !active);
+  });
+}
+
+[...desktopTabs, ...mobileTabs].forEach((tab) => {
+  tab.addEventListener("click", () => setMaterialView(tab.dataset.view));
+});
+
+setMaterialView("resins");
+</script>
+</body>
+</html>
