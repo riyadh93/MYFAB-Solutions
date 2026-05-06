@@ -1,17 +1,26 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "myfab-solutions",
+  "main": ".open-next/worker.js",
   "compatibility_date": "2026-05-06",
   "observability": {
     "enabled": true
   },
   "compatibility_flags": [
-    "nodejs_compat"
+    "nodejs_compat",
+    "global_fetch_strictly_public"
   ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
       "service": "myfab-solutions"
     }
-  ]
+  ],
+  "images": {
+    "binding": "IMAGES"
+  }
 }
