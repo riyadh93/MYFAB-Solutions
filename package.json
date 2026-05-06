@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "node node_modules/next/dist/bin/next dev",
-    "build": "node node_modules/next/dist/bin/next build && opennextjs-cloudflare build",
+    "build": "node node_modules/next/dist/bin/next build",
     "start": "node node_modules/next/dist/bin/next start",
     "lint": "eslint",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
